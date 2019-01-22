@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="app">
+  <input type="text" v-on:input="changeTitle">
+  <p>{{ title }}</p>
+  <p>{{ fixDes() }}</p>
+  <a v-bind:href="link">Google</a>
+  <hr>
+  <p v-html="fLink"></p>
+  <button v-on:click="increase(2, $event)">Click Me</button>
+  <p>{{counter}}</p>
+  <p v-on:mousemove="getMouseLocation"> Mouse Location: {{x}} and {{y}}
+
+  	- <span v-on:mousemove.stop>Death Spot</span>
+  	dfsdfsdfsdf
+  </p>
+
+</div>
+
+</body>
+
+<script >
+new Vue({
+	el: '#app',
+  data: {
+  	pageTitle: 'Hello Vue',
+  	title: 'Hello World!',
+  	link: 'http://www.google.com',
+  	fLink :'<a href="http://www.google.com">Google Fi</a>',
+  	counter: 0,
+  	x : 0,
+  	y :0
+  },
+  methods: {
+  	changeTitle: function(event) {
+    	this.title = event.target.value;
+    },
+    fixDes: function(){
+    	return this.title
+    },
+    increase: function(step, event)
+    {
+    	return this.counter +=step;
+    },
+    getMouseLocation: function(event)
+    {
+    	this.x = event.clientX;
+    	this.y = event.clientY;
+    }
+  }
+});
+</script>
+
+</html>
