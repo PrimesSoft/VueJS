@@ -20,7 +20,7 @@
   	- <span v-on:mousemove.stop>Death Spot</span>
   	dfsdfsdfsdf
   </p>
-
+	<input type="text" v-on:keyup.space.enter="kalrt" />
 </div>
 
 </body>
@@ -52,6 +52,10 @@ new Vue({
     {
     	this.x = event.clientX;
     	this.y = event.clientY;
+    },
+    kalrt: function()
+    {
+    	alert('this is key up alert.');
     }
   }
 });
